@@ -8,14 +8,19 @@ void ordenarAlumnosSexLeg( int leg[], int age[], char sex[], int n1[], int n2[],
     for(int i=0; i < tam-1; i++){
         for(int j = i +1; j < tam; j++){
 
+
+//Condicion para ordenar por sexo ascendente 
+
             if( sex[i] > sex[j]){
                     swap = 1;
             }
+            //si tienen el mismo sexo lso ordeno por legajo ascendente
             else if( sex[i] == sex[j] && leg[i] > leg[j]){
 
                     swap = 1;
             }
-
+            
+//si entro a alguno de los ateriores es porque tengo que swapear 
             if( swap ){
 
                 auxInt = leg[i];
@@ -46,4 +51,7 @@ void ordenarAlumnosSexLeg( int leg[], int age[], char sex[], int n1[], int n2[],
             swap = 0;
         }
     }
+    
+    //si m=m o f=f preg legajos
+
 }
