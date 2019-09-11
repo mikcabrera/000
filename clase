@@ -1,0 +1,65 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>  //funciones de tipo caracter
+
+//
+
+int main()
+{
+    char nombre [20];
+    char apellido [20];
+    char nombreCompleto[41]; //espacios y coma
+    char aux[100];
+    int i=0;
+
+
+
+    printf("Ingrese nombre: ");
+    fflush(stdin);
+    gets(nombre);
+
+        while(strlen(aux)>19)
+        {
+            printf("Error. Demasiado largo, ingrese de nuevo");
+            fflush(stdin);
+            gets(nombre);
+        }
+
+    printf("\nIngrese apellido: ");
+    fflush(stdin);
+    gets(apellido);
+
+            while(strlen(aux)>19)
+        {
+            printf("Error. Demasiado largo, ingrese de nuevo");
+            fflush(stdin);
+            gets(apellido);
+
+        }
+
+   strcpy(apellido,aux);
+
+   strcpy(nombreCompleto,apellido);
+   strcat(nombreCompleto, "," );
+   strcat(nombreCompleto,nombre);
+
+   strlwr(nombreCompleto);
+
+    nombreCompleto[0]= toupper(nombreCompleto[0]);
+
+
+    //con el while nos va condicionando los caracteres hasra el /0, le preguntas
+    //si es un espacio en blanco, si es verdadero sabemos que esta la inicial y hacemos toupper
+    while(nombreCompleto[i] != '\0' )//como i(usamos paraposicionarnos n el vector) esta incializado en cero vaa ser la primera iteracion
+    {
+        if(nombreCompleto[i] == ' ')
+        {
+         nombreCompleto[i+1] = toupper(nombreCompleto);
+        }
+    i++;
+    }
+
+    printf("%s", nombreCompleto);
+
+}
