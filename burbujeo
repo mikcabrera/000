@@ -1,0 +1,106 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define TAM 1
+
+void mostrarAlumnos(int leg[], int age[], char sex[], int n1[], int n2[], float prom[],int tam);
+void mostrarAlumno(int leg, int age, char sexo, int nota1, int nota2, float promedio); //ningun tam xq es uno
+void ordenarALumnosLeg (int leg[], int age[], char sex[], int n1[], int n2[], float prom[],int tam);
+
+int main()
+{
+    int legajos[TAM];
+    int edades[TAM];
+    char sexos[TAM];
+    int notap1[TAM];
+    int notap2[TAM];
+    float promedios[TAM];
+    int i;
+
+        for (i=0; i<TAM;i++)
+        {
+            printf("Ingrese legajo: ");
+            scanf("%d", &legajos[i]);
+
+            printf("Ingrese edad: ");
+            scanf("%d", &edades[i]);
+
+            printf("Ingrese sexo: ");
+            fflush(stdin);
+            scanf("%c", &sexos[i]);
+
+            printf("Ingrese nota primer parcial");
+            scanf("%d", &notap1[i]);
+
+            printf("Ingrese nota segundo parcial");
+            scanf("%d", &notap2[i]);
+
+            promedios[i]=(float) (notap1[i]+notap2[i])/2;
+
+            }
+
+            mostrarAlumnos(legajos,edades,sexos, notap1,notap2,promedios,TAM);
+            ordenarALumnosLeg(legajos,edades,sexos, notap1,notap2,promedios,TAM);
+return 0;
+}
+
+void mostrarAlumnos(int leg[], int age[], char sex[], int n1[], int n2[], float prom[],int tam)
+{
+    int i;
+
+    printf("Legajo  Edad  Sexo  Nota 1  Nota 2  Promedio");
+    printf("\n ");
+
+    for(i=0; i<tam; i++)
+    {
+        mostrarAlumno(leg[i],age[i], sex[i], n1[i],n2[i],prom[i]);
+    }
+
+
+}
+
+void mostrarAlumno(int leg, int age, char sexo, int nota1, int nota2, float promedio)
+{
+    printf("%d  %d  %c   %d   %d   %.2f",leg, age, sexo, nota1,nota2,promedio);
+}
+
+
+void ordenarALumnosLeg (int leg[], int age[], char sex[], int n1[], int n2[], float prom[],int tam)
+{
+
+    int auxInt;
+    float auxFloat;
+    char auxChar;
+    int i;
+    int j;
+
+
+    for(i=0; i< tam-1; i++)
+    {
+
+        for(j=i+1; j<tam; j++)
+        {
+
+            if(leg[i] > leg[j])
+            {
+                auxInt=leg[i];
+                leg[i]=leg[j];
+                leg[j]=auxInt;
+
+                auxInt=age[i];
+                age[i]=age[j];
+                age[j]=auxInt;
+
+                auxChar=sex[i];
+                sex[i]=sex[j];
+                sex[j]=auxInt;
+
+            }
+
+
+
+        }
+    }
+
+}
+
+//si m=m o f=f preg legajos
