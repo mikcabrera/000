@@ -1,0 +1,61 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h> //para poder asignar por strcpy, funcion que lo recorre y muestra el codigo ascii de todo eso.
+// el auxiliar se usa para comprobar si es +o- larga de lo q ocupa la memoria la cadena-
+//si desborda lo buclea
+//EL aux se utiliza para todas las variables, nom, edad, etc..
+//strcpy(nombre,auxCad), copia el aux al nombre.
+
+
+int main()
+{
+
+    char nombre[10];
+    char auxCad[100];
+
+    printf("Ingrese nombre: ");
+    gets(auxCad);
+
+    while( strlen(auxCad) > 9)
+    {
+        printf("Error. Nombre demasiado largo \n");
+        gets(auxCad);
+    }
+
+    strcpy(nombre, auxCad);
+    printf("%s \n ", nombre);
+
+    //strncpy(nombre,auxCad,9); //toma solo esos nueve.
+
+    //comparacion-Case Sensitive.
+    char n1[10];
+    char n2[10];
+    int x;
+    x=strcmp(n1,n2); //devuelve tre svalor 0,1 -1. Si son iguales devuelve cero, si antes devuelvoe1
+    printf("&d", x);
+
+
+    //comrparacion 2
+    strcicmp(n1,n2) //no le presta atencion a las mayusculas. No es CS.
+
+    //concatenacion, hay que fijarse el tamaño de las dos var.
+    char n1[10];
+    char n2[10];
+    char n3[20] //para que no desborde
+    int x;
+
+    strcat(n1,n2); //Juan+a, no se pisan como  strcpy(n1, a2);
+
+    return 0;
+
+    //Pasar a mayuscula
+
+    n2[0]= toupper(n2)[0]; //n2 en el indice-->paracambiar por ejemplo el primer caracter de alberti
+
+    strupr(n1);//todo a mayuscula
+    strlwr(n2); //
+    printf("s", n1);
+}
+
+//con el while nos va condicionando los caracteres hasra el /0, le preguntas
+    //si es un espacio en blanco, si es verdadero sabemos que esta la inicial y hacemos toupper
